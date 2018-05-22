@@ -33,7 +33,7 @@ describe('datepicker component events', () => {
     });
 
     const spy = jest.spyOn(wrapper.vm, 'onChange');
-    wrapper.setData({date: new Date()});
+    wrapper.setData({date: '10/10/2018'});
 
     wrapper.vm.$nextTick(() => {
       expect(spy).toHaveBeenCalled();
