@@ -3,15 +3,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
+  mode: 'development',
   context: __dirname,
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'examples'),
-      'node_modules'
+      path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
@@ -40,17 +39,36 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              sourceMap: true,
+            }
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              minimize: false
+            }
+          },
+        ],
       },
       {
         test: /\.jpe?g$|\.gif$|\.png$/i,
-        loader: 'file-loader?name=[name].[hash].[ext]',
+        loader: 'file-loader',
+        options: {
+          name: '[path][name]-[hash].[ext]',
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'file-loader?name=[name].[ext]?[hash]',
+        loader: 'file-loader',
+        options: {
+          name: '[path][name]-[hash].[ext]',
+        }
       }
-
     ]
   },
   plugins: [
@@ -74,35 +92,27 @@ module.exports = {
       $: 'jquery',
       moment: 'moment',
     }),
-    // https://webpack.js.org/plugins/commons-chunk-plugin/
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        // This prevents stylesheet resources with the .css or .scss extension
-        // from being moved from their original chunk to the vendor chunk
-        if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
-          return false;
-        }
-        return module.context && module.context.indexOf("node_modules") !== -1;
-      }
-    }),
     // Required when devServer.hot = true
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
   ],
-  // Dev server related configs
-  devServer: {
-    contentBase: path.resolve(__dirname, 'examples'),
-    port: 8000,
+  // webpack-serve related configs
+  serve: {
     host: 'localhost',
+    port: 9000,
     open: true,
-    inline: true,
     hot: true,
-    noInfo: false,
-    quiet: false,
-    stats: 'errors-only'
+    logTime: true,
+    logLevel: 'info',
+    clipboard: false
   },
   devtool: '#cheap-module-eval-source-map',
+  performance: {
+    hints: false,
+  },
+  stats: {
+    modules: false,
+  }
 };
 
 
