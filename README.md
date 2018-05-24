@@ -1,3 +1,9 @@
+# Lukewilson-Vue-Bootstrap-DatetimePicker
+
+This is a very slightly modified version of Vue-Bootstrap-Datetimepicker.
+
+Instead of using the dependency "eonasdan-bootstrap-datetimepicker" by Eonasdan, it uses a modified version of that package, "lukewilson-bootstrap-datetimepicker".
+
 # Vue-Bootstrap-DatetimePicker
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
@@ -14,7 +20,7 @@ Vue.js v2.x component for [eonasdan-bootstrap-datetimepicker](http://eonasdan.gi
 
 ## Features
 * Reactive ``v-model`` value
-    - You can change datepicker value programmatically 
+    - You can change datepicker value programmatically
 * Reactive [config](http://eonasdan.github.io/bootstrap-datetimepicker/Options/) options
     - You can change config options dynamically
     - Component will watch for changes and apply them
@@ -26,7 +32,7 @@ Vue.js v2.x component for [eonasdan-bootstrap-datetimepicker](http://eonasdan.gi
 * Bootstrap ^3.3.7 (only css)
 * jQuery >=1.8.3 || ^3.2.1
 * [Moment.js](https://momentjs.com/) ^2.18
- 
+
 ## Installation
 ```bash
 # npm
@@ -35,8 +41,8 @@ npm install vue-bootstrap-datetimepicker --save
 # Yarn
 yarn add vue-bootstrap-datetimepicker
 ```
-  
-#### Using Webpack? 
+
+#### Using Webpack?
 * Webpack users need to configure [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/)
 ```js
 // webpack.config.js
@@ -75,15 +81,15 @@ mix.autoload({
 </template>
 
 <script>
-  // Import required dependencies 
+  // Import required dependencies
   import 'bootstrap/dist/css/bootstrap.css';
-  
+
   // Import this component
   import datePicker from 'vue-bootstrap-datetimepicker';
-  
+
   // Import date picker css
   import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css';
-   
+
   export default {    
     data () {
       return {
@@ -109,7 +115,7 @@ mix.autoload({
   import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css';
   Vue.use(datePicker);
 ```
-This will register a global component `<date-picker>` 
+This will register a global component `<date-picker>`
 
 ## Events
 * The component emits all available [events](http://eonasdan.github.io/bootstrap-datetimepicker/Events)

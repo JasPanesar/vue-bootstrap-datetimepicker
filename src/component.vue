@@ -9,7 +9,7 @@
   import jQuery from 'jquery';
   import moment from 'moment';
 
-  import 'eonasdan-bootstrap-datetimepicker';
+  import 'lukewilson-bootstrap-datetimepicker';
   // You have to import css yourself
 
   // Events list without prefix

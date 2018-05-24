@@ -35,7 +35,7 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+    "lukewilson-bootstrap-datetimepicker": "^4.17.47"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",
