@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ankurk91/vue-bootstrap-datetimepicker.git"
+    "url": "git+https://github.com/blueriver/vue-bootstrap-datetimepicker.git"
   },
   "keywords": [
     "vue",
@@ -23,9 +23,9 @@
   "author": "ankurk91",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ankurk91/vue-bootstrap-datetimepicker/issues"
+    "url": "https://github.com/blueriver/vue-bootstrap-datetimepicker/issues"
   },
-  "homepage": "https://github.com/ankurk91/vue-bootstrap-datetimepicker",
+  "homepage": "https://github.com/blueriver/vue-bootstrap-datetimepicker",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
     "test:watch": "npm run test -- --watch --onlyChanged --notify",
@@ -35,7 +35,8 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "lukewilson-bootstrap-datetimepicker": "^4.17.47"
+    "blueriver-bootstrap-datetimepicker": "^4.17.47",
+    "chalk": "^2.4.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",
